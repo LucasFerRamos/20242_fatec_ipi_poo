@@ -5,7 +5,7 @@ public class TesteLivroDeNotas{
        
         var disciplina1 = JOptionPane.showInputDialog("Digite o nome da disciplina");
         var meuLivro = new LivroDeNotas();
-        meuLivro.nomeDisciplina = disciplina1;
+        meuLivro.setNomeDisciplina(disciplina1);
         //acionar o comportamento sobre ele
         meuLivro.exibirMensagem();
 
@@ -15,7 +15,7 @@ public class TesteLivroDeNotas{
         var meulivro1 = new LivroDeNotas();
         
         var disciplina2 = JOptionPane.showInputDialog("Digite o nome da disciplina 2");
-        meulivro1.nomeDisciplina = disciplina2;
+        meulivro1.setNomeDisciplina(disciplina2);
         meulivro1.exibirMensagem();
 
 
