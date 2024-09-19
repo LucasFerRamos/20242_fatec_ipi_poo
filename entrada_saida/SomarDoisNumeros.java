@@ -15,6 +15,7 @@ public class SomarDoisNumeros{
         //saida
         //System.out.println( a + "  + " + b + " = " + resultadoDaSoma);
         System.out.printf("%d + %d = %d\n", a, b, resultadoDaSoma);
+        leitor.close();
     
     }
 }
