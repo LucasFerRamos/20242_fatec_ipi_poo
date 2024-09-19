@@ -1,8 +1,21 @@
 public class Personagem{
     String nome;
-    int energia = 10;
-    int fome = 0;
-    int sono = 0;
+    private int energia;
+    private int fome;
+    private int sono;
+    Personagem(){
+        System.out.println("Construindo novo personagem");
+        energia = 10;
+        fome = 0;
+        sono = 0;
+    }
+
+    Personagem(int energia, int fome, int sono){
+        System.out.println("Construindo novo personagem");
+        this.energia = energia < 0 || energia > 10 ? 10 : energia;
+        this.fome = fome >= 0 && fome <= 10 ? fome : 0;
+        this.sono = sono >= 0 && sono <= 10 ? sono : 0;
+    }
 
     void cacar(){
         if(energia >=2){
@@ -13,7 +26,7 @@ public class Personagem{
                 "%s Sem energia para caçar\n", 
                 nome
             );
-           
+
         }
         if (fome < 10) fome = fome + 1; 
   
@@ -28,7 +41,7 @@ public class Personagem{
             fome--;
 
         }else{
-            System.out.println(nome + "sem fome");
+            System.out.println(nome + " sem fome");
         }
             
     }
@@ -39,8 +52,17 @@ public class Personagem{
             energia = energia == 10 ? energia:energia + 1;
             sono--;
         }else{
-            System.out.println(nome + "sem sono");
+            System.out.println(nome + " sem sono");
         }
         
+    }
+    public String toString(){
+        //redefiniu o metodo 
+        //quero que a representação visual do personagem seja essa:
+        
+        return String.format(
+            " %s: e:%d, f:%d, s:%d",
+            nome, energia,fome,sono
+        );
     }
 }

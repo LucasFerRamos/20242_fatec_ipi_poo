@@ -3,7 +3,7 @@ public class JogoV1 {
         //construir um objeto Personagem
         var p1 = new Personagem();
         // atribuir um nome a ele
-        p1.nome = "Zelda";
+        p1.nome = "joao";
         //colocaar o personagem para caçar
         p1.cacar();
         //colocar o personagem para comer
