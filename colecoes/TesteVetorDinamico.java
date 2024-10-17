@@ -10,11 +10,19 @@ public class TesteVetorDinamico {
         var gerador = new  Random();
         while (true) {
         var valor = gerador.nextInt(10) + 1;
-        vetor.adicionar(valor);
+        var sorteio = gerador.nextDouble();
+        if (sorteio <= 0.4){
+            System.out.println("Removendo...");
+            vetor.remover();
+        }else{
+            System.out.println("Adicionando....");
+            vetor.adicionar(valor);
+        }
         System.out.println(vetor);
         System.out.println("=================");
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         }
 
     }
+
 }

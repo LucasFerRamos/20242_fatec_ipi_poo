@@ -2,10 +2,67 @@ public class VetorDinamico {
     private int qtde;
     private int cap;
     private int [] elementos;
-
+ 
+    private static final int CAPACIDADE_MINIMA = 4;
     public void adicionar(int e){
-    elementos[qtde] = e;
-    qtde++;
+        if(estaCheio()){
+            redimensionar(2);
+        }
+        elementos[qtde++] = e;
+
+    }
+    private void redimensionar(double fator){
+        int[] aux;
+        aux = new int[(int)(cap*fator)];
+        for (int i= 0; i < cap; i++) {
+           
+            aux[i] = elementos[i];
+        }
+        cap = (int)(cap*fator);
+        elementos = aux;
+    }
+    private void aumentarCapacidade(){
+        int[] aux;
+        aux = new int[cap*2];
+        for (int i= 0; i < cap; i++) {
+           
+            aux[i] = elementos[i];
+        }
+        cap = cap*2;
+        elementos = aux;
+    }
+    private void reduzirCapacidade(){
+        if(estaUmQuartoCheio()){
+            int aux[];
+            aux = new int[cap/2];
+            for (int i= 0; i < cap; i++) {
+               
+                aux[i] = elementos[i];
+            }
+            cap = cap/2;
+            elementos = aux;
+        }
+    }
+
+    public boolean estaCheio(){
+        return qtde == cap;
+    }
+
+    public boolean estaVazio(){
+        return qtde == 0;
+    }
+
+    public void remover(){
+        if(!estaVazio()) {
+            qtde--;
+           
+        }
+        if(estaUmQuartoCheio() && cap > CAPACIDADE_MINIMA){
+            redimensionar(0.5);
+        }
+    }
+    public boolean estaUmQuartoCheio(){
+        return qtde <= cap / 4;
     }
     public VetorDinamico(int cap){
         if(cap >= 4){
