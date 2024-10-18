@@ -14,7 +14,7 @@ public class VetorDinamico {
     private void redimensionar(double fator){
         int[] aux;
         aux = new int[(int)(cap*fator)];
-        for (int i= 0; i < cap; i++) {
+        for (int i= 0; i < qtde; i++) {
            
             aux[i] = elementos[i];
         }
@@ -24,7 +24,7 @@ public class VetorDinamico {
     private void aumentarCapacidade(){
         int[] aux;
         aux = new int[cap*2];
-        for (int i= 0; i < cap; i++) {
+        for (int i= 0; i < qtde; i++) {
            
             aux[i] = elementos[i];
         }
@@ -35,7 +35,7 @@ public class VetorDinamico {
         if(estaUmQuartoCheio()){
             int aux[];
             aux = new int[cap/2];
-            for (int i= 0; i < cap; i++) {
+            for (int i= 0; i < qtde; i++) {
                
                 aux[i] = elementos[i];
             }
