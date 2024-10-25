@@ -1,10 +1,11 @@
-public class VetorDinamico {
+public class VetorDinamico <T> {
     private int qtde;
     private int cap;
-    private int [] elementos;
+    private T [] elementos;
  
     private static final int CAPACIDADE_MINIMA = 4;
-    public void adicionar(int e){
+
+    public void adicionar(T e){
         if(estaCheio()){
             redimensionar(2);
         }
@@ -12,8 +13,8 @@ public class VetorDinamico {
 
     }
     private void redimensionar(double fator){
-        int[] aux;
-        aux = new int[(int)(cap*fator)];
+        T[] aux;
+        aux = (T[]) new Object[(int)(cap * fator)];
         for (int i= 0; i < qtde; i++) {
            
             aux[i] = elementos[i];
@@ -21,28 +22,28 @@ public class VetorDinamico {
         cap = (int)(cap*fator);
         elementos = aux;
     }
-    private void aumentarCapacidade(){
-        int[] aux;
-        aux = new int[cap*2];
-        for (int i= 0; i < qtde; i++) {
+    // private void aumentarCapacidade(){
+    //     int[] aux;
+    //     aux = new int[cap*2];
+    //     for (int i= 0; i < qtde; i++) {
            
-            aux[i] = elementos[i];
-        }
-        cap = cap*2;
-        elementos = aux;
-    }
-    private void reduzirCapacidade(){
-        if(estaUmQuartoCheio()){
-            int aux[];
-            aux = new int[cap/2];
-            for (int i= 0; i < qtde; i++) {
+    //         aux[i] = elementos[i];
+    //     }
+    //     cap = cap*2;
+    //     elementos = aux;
+    // }
+    // private void reduzirCapacidade(){
+    //     if(estaUmQuartoCheio()){
+    //         int aux[];
+    //         aux = new int[cap/2];
+    //         for (int i= 0; i < qtde; i++) {
                
-                aux[i] = elementos[i];
-            }
-            cap = cap/2;
-            elementos = aux;
-        }
-    }
+    //             aux[i] = elementos[i];
+    //         }
+    //         cap = cap/2;
+    //         elementos = aux;
+    //     }
+    // }
 
     public boolean estaCheio(){
         return qtde == cap;
@@ -66,11 +67,11 @@ public class VetorDinamico {
     }
     public VetorDinamico(int cap){
         if(cap >= 4){
-            elementos = new int[cap];
+            elementos = (T[]) new Object[cap];
             this.cap = cap;
         }
         else{
-            elementos = new int[4];
+            elementos = (T[]) new Object[4];
             this.cap = 4;
         }
         
