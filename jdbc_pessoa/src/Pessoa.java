@@ -8,10 +8,10 @@ import lombok.Setter;
 @NoArgsConstructor
 
 public class Pessoa {
-
+    public Pessoa(int codigo){
+        this.codigo = codigo;
+    }
     private int codigo;
     private String nome, fone, email;
-
-    
-
 }
+
